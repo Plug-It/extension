@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WiBla-Plug-Extension's options</title>
+  <style>
+    body {padding: 10px;}
+    #save {margin-top: 10px;}
+  </style>
+</head>
+
+<body>
+  <label>
+    <input type="checkbox" id="enabled">Load Plug-It.<br>
+  </label>
+  <label>
+    <input type="checkbox" id="reload">Automaticaly reload if plug is down.<br>
+  </label>
+  <label>
+    <input type="checkbox" id="custom-enabled">Load custom script: <input type="text" id="URL" value=".js URL (https)"><br>
+  </label>
+  
+  <button id="save">Save</button>
+
+  <script src="options.js"></script>
+</body>
+</html>
