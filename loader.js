@@ -10,7 +10,7 @@
       var script = document.createElement("script");
       script.type = "text/javascript";
       if (typeof URL !== "undefined") script.src = URL;
-      else script.src = "https://rawgit.com/WiBla/Script/master/ressources/WiBla.js";
+      else script.src = "https://rawgit.com/Plug-It/pi/master/ressources/pi.js";
       $("head")[0].appendChild(script);
     }
   }
