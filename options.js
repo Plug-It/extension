@@ -25,7 +25,7 @@ function restore_options() {
     enabled: true,
     autof5: true,
     custom_enabled: false,
-    custom_URL: ".js URL (https)"
+    custom_URL: ".js URL (https) separated by comas"
   }, function(items) {
     document.getElementById('enabled').checked = items.enabled;
     document.getElementById('reload').checked = items.autof5;
