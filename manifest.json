@@ -20,7 +20,18 @@
   
   "content_scripts": [{
     "matches": ["*://*.plug.dj/*"],
-    "exclude_matches": ["*://*.plug.dj/dashboard/", "*://*.plug.dj/dashboard", "*://*.plug.dj/about", "*://*.plug.dj/terms", "*://*.plug.dj/privacy"],
+    "exclude_matches": [
+      "*://*.plug.dj/dashboard",
+      "*://*.plug.dj/about",
+      "*://*.plug.dj/press",
+      "*://*.plug.dj/ba",
+      "*://*.plug.dj/terms",
+      "*://*.plug.dj/privacy",
+      "*://*.plug.dj/subscribe",
+      "*://*.plug.dj/plot",
+      "*://*.plug.dj/_/*",
+      "*://*.plug.dj/@/*"
+    ],
     "js": ["loader.js"],
     "run_at": "document_end"
   }],
