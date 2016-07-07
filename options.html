@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WiBla-Plug-Extension's options</title>
+  <title>Plug-It Extension's options</title>
   <style>
     body {padding: 10px;}
+    label input[type='checkbox'] {margin-right: 5px; margin-bottom: 5px;}
+    input.url {width: calc(100% - 60px)}
+    .add-input, .rmv-input {min-width: 0;}
     #save {margin-top: 10px;}
   </style>
 </head>
 
 <body>
   <label>
-    <input type="checkbox" id="enabled">Load Plug-It.<br>
+    <input type="checkbox" id="enabled">Load Plug-It (pre-release).<br>
   </label>
   <label>
-    <input type="checkbox" id="reload">Automaticaly reload if plug is down.<br>
+    <input type="checkbox" id="reload">Reload the maintenance page every 60s.<br>
   </label>
   <label>
-    <input type="checkbox" id="custom-enabled">Load custom script: <input type="text" id="URL" value=".js URL (https) separated by comas"><br>
+    <input type="checkbox" id="custom-enabled">Load custom script(s) :<br>
   </label>
+  <input type="text" class="url" tabindex="1" placeholder='*.js (must be https)'><button class="add-input">+</button>
   
   <button id="save">Save</button>
 
