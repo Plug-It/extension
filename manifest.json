@@ -3,7 +3,7 @@
   "name": "Plug-It Extension",
   "short_name": "PIE",
   "description": "Easily load Plug-It or any script for Plug.dj.",
-  "version": "1.7.0",
+  "version": "1.8.0",
   
   "options_ui": {
     "page": "options.html",

@@ -2,22 +2,30 @@ function save_options() {
   var enabled = document.getElementById('enabled').checked;
   var reload = document.getElementById('reload').checked;
   var custom_enabled = document.getElementById('custom-enabled').checked;
-  var custom_URL = [];
+  var scripts = [];
+  var custom_code = document.getElementById('custom-code').value;
 
   var urls = document.querySelectorAll('.url');
   for (var i = 0; i < urls.length; i++) {
-    custom_URL.push(urls[i].value);
+    var shouldLoad = document.getElementById(i+1).checked;
+    var url = urls[i].value;
+    scripts.push([shouldLoad, url]);
   }
   chrome.storage.sync.set({
     enabled: enabled,
     autof5: reload,
     custom_enabled: custom_enabled,
-    custom_URL: custom_URL
+    scripts: scripts,
+    custom_code: custom_code
   }, function() {
     // Update save button to let user know options were saved.
     var button = document.getElementById('save');
     button.textContent = 'Options saved !';
-    setTimeout(function(){button.textContent = 'Save';}, 2000);
+    button.className = 'saved';
+    window.uInt = setTimeout(function(){
+      button.textContent = 'Save';
+      button.className = '';
+    }, 2000);
   });
 }
 function restore_options() {
@@ -26,58 +34,68 @@ function restore_options() {
     enabled: true,
     autof5: true,
     custom_enabled: false,
-    custom_URL: [""]
+    scripts: [],
+    custom_code: ''
   }, function(items) {
     document.getElementById('enabled').checked = items.enabled;
     document.getElementById('reload').checked = items.autof5;
     document.getElementById('custom-enabled').checked = items.custom_enabled;
-    var urls = document.querySelectorAll('.url');
-    while (urls.length < items.custom_URL.length) {
-      var lastBtn = document.querySelectorAll('.add-input');
-      lastBtn = lastBtn[lastBtn.length-1];
+    var url = document.querySelectorAll('.url');
+    for (var i = 0; i < items.scripts.length; i++) {
+      if (url.length < items.scripts.length) document.getElementById('add').click();
+      document.getElementById(i+1).checked = items.scripts[i][0];
+      url[i].value = items.scripts[i][1];
 
-      lastBtn.click();
-      urls = document.querySelectorAll('.url');
+      var url = document.querySelectorAll('.url');
     }
-    
-    for (var i = 0; i < urls.length; i++) {
-      urls[i].value = items.custom_URL[i];
-    }
+
+    document.getElementById('custom-code').value = items.custom_code;
   });
 }
 function addUrlInput(e) {
-  var button = e.currentTarget;
+  let button = e.currentTarget;
+  let index = document.querySelectorAll('.url').length+1;
 
   // Creating elements
-  var br = document.createElement('br');
-  var input = document.createElement('input');
-      input.type = 'text';
-      input.className = 'url';
-      input.tabIndex = document.querySelectorAll('.url').length+1;
-  var buttonAdd = document.createElement('button');
-      buttonAdd.className = 'add-input';
-      buttonAdd.textContent = '+';
-      buttonAdd.addEventListener('click', function(e){addUrlInput(e);});
-  var buttonRmv = document.createElement('button');
-      buttonRmv.className = 'rmv-input';
-      buttonRmv.textContent = '-';
-      buttonRmv.addEventListener('click', function(e){rmvUrlInput(e);});
+  var div = document.createElement('div');
+      div.className = 'row';
+  var inputCheck = document.createElement('input');
+      inputCheck.type = 'checkbox';
+      inputCheck.id = index;
+  var label = document.createElement('label');
+      label.setAttribute('for', index);
+  var inputURL = document.createElement('input');
+      inputURL.type = 'text';
+      inputURL.className = 'url';
+      inputURL.placeholder = '*.js (must be https)';
+      inputURL.tabIndex = index;
+      inputURL.autocomplete = 'off';
+      inputURL.autocorrect = 'off';
+  var rmvButton = document.createElement('button');
+      rmvButton.addEventListener('click', function() {
+        // button.row.body.remove(this)
+        button.parentNode.parentNode.removeChild(div);
+      });
+
+  // Creating the whole thing
+  div.appendChild(inputCheck);
+  div.appendChild(label);
+  div.appendChild(inputURL);
+  div.appendChild(rmvButton);
 
   // similar to $(button).after()
-  var after = document.getElementById('save');
-  button.parentNode.insertBefore(br, after);
-  button.parentNode.insertBefore(input, after);
-  button.parentNode.insertBefore(buttonAdd, after);
-  button.parentNode.insertBefore(buttonRmv, after);
+  var after = document.getElementById('custom-code');
+  button.parentNode.parentNode.insertBefore(div, after);
 }
-function rmvUrlInput(e) {
-  var button = e.currentTarget;
-  var parent = button.parentNode;
-  parent.removeChild(button.previousElementSibling.previousElementSibling.previousElementSibling); // br
-  parent.removeChild(button.previousElementSibling.previousElementSibling); // input
-  parent.removeChild(button.previousElementSibling); // button.add-input
-  parent.removeChild(button);
-}
+
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click', save_options);
-document.querySelector('.add-input').addEventListener('click', function(e){addUrlInput(e);});
+document.getElementById('save').addEventListener('click', function(e) {
+  if (e.target.className === 'saved') {
+    clearTimeout(uInt);
+    e.target.textContent = 'Save';
+    e.target.className = '';
+  } else {
+    save_options();
+  }
+});
+document.getElementById('add').addEventListener('click', function(e){addUrlInput(e);});
