@@ -18,6 +18,7 @@
 
 ## Changelog  
 
+- 1.8.1 Fixed textarea width, exclude /team and /jobs  
 - 1.8 Options page revisited, on/off option for each script.  
 - 1.7 Multi-line URL input for custom scripts.  
 - 1.6.2 New icons, load multi-scrips by using comas in custom URL.  

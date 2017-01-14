@@ -17,7 +17,7 @@
       } else {
         typeof URL == 'undefined' ? script.id = 'pi-script' : script.className = 'pi-custom-script';
         script.type = 'text/javascript';
-        typeof URL !== 'undefined' ? script.src = URL : script.src = 'https://rawgit.com/Plug-It/pi/pre-release/ressources/pi.js';
+        typeof URL !== 'undefined' ? script.src = URL : script.src = 'https://rawgit.com/Plug-It/pi/pre-release/js/pi.js';
         $('head')[0].appendChild(script);
       }
     }

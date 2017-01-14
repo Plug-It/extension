@@ -140,8 +140,9 @@ input[type=checkbox] {visibility: hidden;}
 }
 
 textarea {
-	max-width: 400px; width: 400px;
+	width: 100%;
 	min-height: 20px; height: 150px;
+	resize: vertical;
 	border: 0;
 	border-radius: 0;
 	padding: 5px !important;
