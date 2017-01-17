@@ -6,7 +6,7 @@
 
 ##Easily load Plug-It or any script for Plug.dj !  
 
-[![Option page](http://i.imgur.com/nKm6GfG.png)](https://chrome.google.com/webstore/detail/plug-it-extension/bikeoipagmbnkipclndbmfkjdcljocej)
+[![Option page](https://i.imgur.com/Hin9J1p.png)](https://chrome.google.com/webstore/detail/plug-it-extension/bikeoipagmbnkipclndbmfkjdcljocej)
 
 ## To-do
 
