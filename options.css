@@ -12,7 +12,7 @@ input[type=checkbox] {visibility: hidden;}
 	width: 100%; height: 30px;
 
 	background: #fcfff4;
-	background: linear-gradient(#fcfff4, #dfe5d7 40%, #b3bead);
+	background: linear-gradient(hsl(210,5%,90%), hsl(210,5%,80%) 40%, hsl(210,5%,60%));
 	box-shadow:
 	  inset 0 1px 1px #FFF,
 	  0 1px 3px rgba(0,0,0,.5);
@@ -55,7 +55,7 @@ input[type=checkbox] {visibility: hidden;}
 	  -1px -1px 1px rgba(0,0,0,.2),
 	  1px 1px .5px rgba(255,255,255,1);
 	background: #00bf00;
-	background: linear-gradient(hsl(90, 60%, 50%), hsl(90, 60%, 40%));
+	background: linear-gradient(hsl(90, 60%, 60%), hsl(90, 60%, 40%));
 	box-shadow:
 	  inset 0 1px 0 #FFF,
 	  0 1px 3px rgba(0,0,0,.5);

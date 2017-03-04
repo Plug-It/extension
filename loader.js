@@ -26,9 +26,13 @@
     // if not completely loaded, call again until loaded
     if (!$('#video').length && !$('.spinner').length) setTimeout(autoReload, 200);
     else if ($('#video').length) {
-      // Remove annoying video, we all have seen them enough
-      $('.content')[0].removeChild($('#video')[0]);
       setTimeout(function(){location.reload();}, 60*1000);
+    }
+  }
+  function removeVideo() {
+    if (!$('#video').length && !$('.spinner').length) setTimeout(removeVideo, 200);
+    else if ($('#video').length) {
+      $('.content')[0].removeChild($('#video')[0]);
     }
   }
 
@@ -37,12 +41,14 @@
     // Default settings
     enabled: true,
     autof5: true,
+    hideVideo: true,
     custom_enabled: false,
     scripts: [],
     custom_code: ''
   }, function(items) {
     if (items.enabled) loadScript();
     if (items.autof5) autoReload();
+    if (items.hideVideo) removeVideo();
     if (items.custom_enabled) {
       var scripts = items.scripts;
       for (var i = 0; i < scripts.length; i++) {

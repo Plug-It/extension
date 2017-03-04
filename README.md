@@ -6,18 +6,11 @@
 
 ##Easily load Plug-It or any script for Plug.dj !  
 
-[![Option page](https://i.imgur.com/Hin9J1p.png)](https://chrome.google.com/webstore/detail/plug-it-extension/bikeoipagmbnkipclndbmfkjdcljocej)
-
-## To-do
-
-- [x] Make awesome icons !  
-- [x] Take awesome screenshots for the chrome webstore.  
-- [x] Fix custom script not being executed [#1](https://github.com/Plug-It/pie/issues/1).  
-- [x] Add individual on/off options for each custom script.  
-- [x] Make it beautiful !  
+[![Option page](https://i.imgur.com/XHVLCd6.png)](https://chrome.google.com/webstore/detail/plug-it-extension/bikeoipagmbnkipclndbmfkjdcljocej)
 
 ## Changelog  
 
+- 1.9 New super awesome icons, Hide maintenance video option.
 - 1.8.1 Fixed textarea width, exclude /team and /jobs  
 - 1.8 Options page revisited, on/off option for each script.  
 - 1.7 Multi-line URL input for custom scripts.  

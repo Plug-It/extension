@@ -1,6 +1,7 @@
 function save_options() {
   var enabled = document.getElementById('enabled').checked;
   var reload = document.getElementById('reload').checked;
+  var hide_video = document.getElementById('hide-video').checked;
   var custom_enabled = document.getElementById('custom-enabled').checked;
   var scripts = [];
   var custom_code = document.getElementById('custom-code').value;
@@ -14,6 +15,7 @@ function save_options() {
   chrome.storage.sync.set({
     enabled: enabled,
     autof5: reload,
+    hideVideo: hide_video,
     custom_enabled: custom_enabled,
     scripts: scripts,
     custom_code: custom_code
@@ -33,12 +35,14 @@ function restore_options() {
   chrome.storage.sync.get({
     enabled: true,
     autof5: true,
+    hideVideo: true,
     custom_enabled: false,
     scripts: [],
     custom_code: ''
   }, function(items) {
     document.getElementById('enabled').checked = items.enabled;
     document.getElementById('reload').checked = items.autof5;
+    document.getElementById('hide-video').checked = items.hideVideo;
     document.getElementById('custom-enabled').checked = items.custom_enabled;
     var url = document.querySelectorAll('.url');
     for (var i = 0; i < items.scripts.length; i++) {
