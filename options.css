@@ -1,11 +1,11 @@
-* {margin: 0 !important;padding: 0 !important;}
+* {margin: 0 !important; padding: 0 !important;}
 body {
 	font-family: "trebuchet MS", Arial;
 
 	background: #222;
 	color: #EEE;
 }
-input[type=checkbox] {visibility: hidden;}
+input[type="checkbox"] {visibility: hidden}
 
 .row {
 	position: relative;
@@ -19,7 +19,7 @@ input[type=checkbox] {visibility: hidden;}
 }
 .row.setting h2 {
 	position: relative;
-	top: -5px; left: 32px;
+	top: -6px; left: 32px;
 	width: calc(100% - 32px);
 
 	font-size: 15px;
@@ -61,12 +61,12 @@ input[type=checkbox] {visibility: hidden;}
 	  0 1px 3px rgba(0,0,0,.5);
 	transition: opacity .25s ease;
 }
-.row label:hover::after {opacity: .3;}
-.row input[type=checkbox]:checked + label:after {opacity: 1;}
+.row label:hover::after {opacity: .3}
+.row input[type="checkbox"]:checked + label:after {opacity: 1}
 .row input[type="text"] {
 	display: inline-block;
-	position: relative;
-	top: 5px; left: 17px;
+	position: absolute;
+	top: 5px; left: 31px;
 	min-height: 20px;
 	width: calc(100% - 65px);
 	padding: 0 5px !important;
@@ -81,9 +81,6 @@ input[type=checkbox] {visibility: hidden;}
 	  inset 1px 1px 3px rgba(0,0,0,.5),
 	  0 1px 0 #FFF;
 	transition: box-shadow .3s;
-}
-.row:not(.settings):nth-child(4) input[type='text'] {
-	left: 13px;
 }
 .row input[type="text"]:focus,
 .row input[type="text"].focus {

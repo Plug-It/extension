@@ -10,6 +10,7 @@
 
 ## Changelog  
 
+- 1.9.1 Fixed first script link position in options.
 - 1.9 New super awesome icons, Hide maintenance video option.
 - 1.8.1 Fixed textarea width, exclude /team and /jobs  
 - 1.8 Options page revisited, on/off option for each script.  

@@ -3,20 +3,26 @@
 // @namespace   WiBla (http://wibla.free.fr) <contact.wibla@gmail.com>
 // @description Easily load Plug-It for Plug.dj.
 // @icon        https://raw.githubusercontent.com/Plug-It/extension/master/icon128.png
-// @include     https://plug.dj/*
-// @include     https://plug.dj/dashboard
-// @exclude     https://plug.dj/about
-// @exclude     https://plug.dj/press
-// @exclude     https://plug.dj/ba
-// @exclude     https://plug.dj/terms
-// @exclude     https://plug.dj/team
-// @exclude     https://plug.dj/jobs
-// @exclude     https://plug.dj/privacy
-// @exclude     https://plug.dj/subscribe
-// @exclude     https://plug.dj/plot
-// @exclude     https://plug.dj/_/*
-// @exclude     https://plug.dj/@/*
-// @version     1.0.2
+// @include     *://plug.dj/*
+// @include     *://*.plug.dj/*
+// @exclude     *://*.plug.dj/_/*
+// @exclude     *://*.plug.dj/@/*
+// @exclude     *://*.plug.dj/!/*
+// @exclude     *://*.plug.dj/about
+// @exclude     *://*.plug.dj/ba
+// @exclude     *://*.plug.dj/forgot-password
+// @exclude     *://*.plug.dj/giftsub/*
+// @exclude     *://*.plug.dj/jobs
+// @exclude     *://*.plug.dj/legal
+// @exclude     *://*.plug.dj/partners
+// @exclude     *://*.plug.dj/plot
+// @exclude     *://*.plug.dj/privacy
+// @exclude     *://*.plug.dj/purchase
+// @exclude     *://*.plug.dj/subscribe
+// @exclude     *://*.plug.dj/team
+// @exclude     *://*.plug.dj/terms
+// @exclude     *://*.plug.dj/press
+// @version     1.1.0
 // @grant       none
 // ==/UserScript==
 (function() {
@@ -37,8 +43,6 @@
     // if not completely loaded, call again until loaded
     if (!$('#video').length && !$('.spinner').length) setTimeout(autoReload, 200);
     else if ($('#video').length) {
-      // Remove annoying video, we all have seen them enough
-      $('.content')[0].removeChild($('#video')[0]);
       setTimeout(function(){location.reload();}, 60*1000);
     }
   }
