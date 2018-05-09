@@ -5,7 +5,7 @@
   function $(selector) {return document.querySelectorAll(selector);}
   function loadScript(URL, code) {
     // Check if DOM is ready
-    if ($('.loading-box').length || $('.spinner').length || !$('.logout').length) {
+    if (!$('.loading-box.d-none').length || !$('.logout').length) {
       setTimeout(function(){loadScript(URL, code);}, 200);
     } else {
       var script = document.createElement('script');

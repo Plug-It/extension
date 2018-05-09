@@ -11,9 +11,11 @@
 // @exclude     *://*.plug.dj/about
 // @exclude     *://*.plug.dj/ba
 // @exclude     *://*.plug.dj/forgot-password
+// @exclude     *://*.plug.dj/founders
 // @exclude     *://*.plug.dj/giftsub/*
 // @exclude     *://*.plug.dj/jobs
 // @exclude     *://*.plug.dj/legal
+// @exclude     *://*.plug.dj/merch
 // @exclude     *://*.plug.dj/partners
 // @exclude     *://*.plug.dj/plot
 // @exclude     *://*.plug.dj/privacy
@@ -22,14 +24,14 @@
 // @exclude     *://*.plug.dj/team
 // @exclude     *://*.plug.dj/terms
 // @exclude     *://*.plug.dj/press
-// @version     1.1.0
+// @version     1.1.1
 // @grant       none
 // ==/UserScript==
 (function() {
   function $(selector) {return document.querySelectorAll(selector);}
   function loadScript(URL) {
     // Check if DOM is ready
-    if ($('.loading-box').length || $('.spinner').length || !$('.logout').length) {
+    if (!$('.loading-box.d-none').length || !$('.logout').length) {
       setTimeout(function(){loadScript();}, 200);
     } else {
       var script = document.createElement('script');
